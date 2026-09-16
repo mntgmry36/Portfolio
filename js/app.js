@@ -10,7 +10,7 @@ document.documentElement.classList.add("js-ready");
  * 3. Add resume.pdf beside index.html.
  */
 function portfolioApp() {
-  const CONTACT_EMAIL = "YOUR-EMAIL@example.com";
+  const CONTACT_EMAIL = "mntgmry36@outlook.com";
 
   return {
     darkMode: false,
