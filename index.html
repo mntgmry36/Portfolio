@@ -55,6 +55,27 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Tailwind configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["PT Sans", "sans-serif"],
+            body: ["DM Sans", "sans-serif"]
+          },
+
+          colors: {
+            accent: "#15803D",
+            "accent-light": "#4ADE80"
+          }
+        }
+      }
+    };
+  </script>
+
   <!-- Portfolio JavaScript must load before Alpine -->
 <script defer src="js/app.js"></script>
 
@@ -77,27 +98,6 @@
     href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
     rel="stylesheet"
   >
-
-  <!-- Tailwind configuration -->
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ["PT Sans", "sans-serif"],
-            body: ["DM Sans", "sans-serif"]
-          },
-
-          colors: {
-            accent: "#0F766E",
-            "accent-light": "#5EEAD4"
-          }
-        }
-      }
-    };
-  </script>
 
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/style.css">
