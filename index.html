@@ -39,7 +39,7 @@
 
   <title>Cameron Montgomery — Computer Science Portfolio</title>
 
-  <!-- Prevents a light-mode flash before Alpine loads. -->
+  <!-- Apply the saved theme before the page renders. -->
   <script>
     if (
       localStorage.getItem("theme") === "dark" ||
@@ -52,19 +52,16 @@
     }
   </script>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Portfolio JavaScript must load before Alpine -->
-<script defer src="js/app.js"></script>
+  <!-- Load the component before Alpine initializes it. -->
+  <script defer src="js/app.js"></script>
 
-    <!-- Alpine.js -->
-<script
+  <script
     defer
     src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-></script>
+  ></script>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -78,7 +75,6 @@
     rel="stylesheet"
   >
 
-  <!-- Tailwind configuration -->
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -99,7 +95,6 @@
     };
   </script>
 
-  <!-- Custom styles -->
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -107,9 +102,7 @@
 <body
   class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-body antialiased"
 >
-  <!-- =========================================================
-       HEADER
-       ========================================================= -->
+  <!-- Header -->
 
   <header
     class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
@@ -123,7 +116,6 @@
       class="max-w-6xl mx-auto h-16 px-6 flex items-center justify-between"
       aria-label="Main navigation"
     >
-      <!-- Logo -->
       <a
         href="#home"
         class="relative z-10 font-display font-bold text-xl tracking-tight"
@@ -132,7 +124,6 @@
         <span class="text-zinc-900 dark:text-white">Cameron Montgomery</span><span class="text-accent">.</span>
       </a>
 
-      <!-- Desktop navigation -->
       <ul
         class="hidden lg:flex items-center gap-7 text-sm"
         role="list"
@@ -209,9 +200,7 @@
         </li>
       </ul>
 
-      <!-- Header controls -->
       <div class="flex items-center gap-2">
-        <!-- LinkedIn -->
         <a
           href="https://www.linkedin.com/in/cameron-montgomery-14b4232a4"
           target="_blank"
@@ -231,7 +220,6 @@
           </svg>
         </a>
 
-        <!-- GitHub -->
         <a
           href="https://github.com/mntgmry36?tab=repositories"
           target="_blank"
@@ -253,14 +241,12 @@
           </svg>
         </a>
 
-        <!-- Theme toggle -->
         <button
           type="button"
           class="social-icon-button"
           @click="toggleTheme()"
           :aria-label="darkMode ? 'Switch to light mode' : 'Switch to dark mode'"
         >
-          <!-- Moon -->
           <svg
             x-show="!darkMode"
             class="w-4 h-4"
@@ -277,7 +263,6 @@
             />
           </svg>
 
-          <!-- Sun -->
           <svg
             x-show="darkMode"
             x-cloak
@@ -296,7 +281,6 @@
           </svg>
         </button>
 
-        <!-- Mobile menu button -->
         <button
           type="button"
           class="lg:hidden social-icon-button"
@@ -305,7 +289,6 @@
           aria-controls="mobile-navigation"
           aria-label="Toggle navigation menu"
         >
-          <!-- Menu -->
           <svg
             x-show="!mobileMenuOpen"
             class="w-4 h-4"
@@ -322,7 +305,6 @@
             />
           </svg>
 
-          <!-- Close -->
           <svg
             x-show="mobileMenuOpen"
             x-cloak
@@ -343,7 +325,6 @@
       </div>
     </nav>
 
-    <!-- Mobile navigation -->
     <div
       id="mobile-navigation"
       x-show="mobileMenuOpen"
@@ -433,9 +414,7 @@
   </header>
 
   <main>
-    <!-- =======================================================
-         HERO
-         ======================================================= -->
+    <!-- Hero -->
 
     <section
       id="home"
@@ -454,7 +433,6 @@
 
       <div class="relative z-10 max-w-6xl mx-auto w-full px-6 py-28">
         <div class="grid lg:grid-cols-[1.3fr_0.7fr] gap-16 items-center">
-          <!-- Hero text -->
           <div>
             <p
               class="reveal text-xs sm:text-sm font-medium text-accent tracking-[0.2em] uppercase mb-5"
@@ -478,7 +456,6 @@
               dependable software.
             </p>
 
-            <!-- Primary links -->
             <div class="reveal delay-3 flex flex-wrap gap-3 mt-9">
               <a
                 href="resume.pdf"
@@ -523,7 +500,6 @@
               </a>
             </div>
 
-            <!-- Contact information near the top -->
             <div
               class="reveal delay-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-900 text-sm text-zinc-500 dark:text-zinc-400"
             >
@@ -556,56 +532,11 @@
               <span>Virginia, United States</span>
             </div>
           </div>
-
-          <!-- Hero profile card -->
-          <!-- <div class="reveal delay-2">
-            <div class="profile-card">
-              <div class="profile-placeholder" aria-hidden="true">
-                <span>CM</span>
-              </div>
-
-              <!--
-                To use a photograph, replace the profile-placeholder div with:
-
-                <img
-                  src="assets/profile.jpg"
-                  alt="Portrait of Cameron Montgomery"
-                  class="w-full aspect-square object-cover rounded-2xl"
-                >
-              -->
-
-              <!-- <div class="mt-6">
-                <p class="text-xs text-accent font-medium tracking-widest uppercase">
-                  Currently
-                </p>
-
-                <h2 class="font-display font-bold text-2xl mt-2">
-                  Building my foundation
-                </h2>
-
-                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
-                  Developing practical skills through coursework, independent
-                  study, and future software projects.
-                </p>
-              </div> -->
-
-              <!-- <a
-                href="#contact"
-                class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-accent hover:text-accent-light transition-colors"
-              >
-                Contact me
-
-                <span aria-hidden="true">→</span>
-              </a> -->
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- =======================================================
-         ABOUT
-         ======================================================= -->
+    <!-- About -->
 
     <section
       id="about"
@@ -690,9 +621,7 @@
       </div>
     </section>
 
-    <!-- =======================================================
-         EDUCATION
-         ======================================================= -->
+    <!-- Education -->
 
     <section
       id="education"
@@ -837,9 +766,7 @@
       </div>
     </section>
 
-    <!-- =======================================================
-         CLASS EXPERIENCE
-         ======================================================= -->
+    <!-- Coursework -->
 
     <section
       id="experience"
@@ -951,9 +878,7 @@
       </div>
     </section>
 
-    <!-- =======================================================
-         SKILLS
-         ======================================================= -->
+    <!-- Skills -->
 
     <section
       id="skills"
@@ -1142,99 +1067,7 @@
       </div>
     </section>
 
-    <!-- =======================================================
-         PROJECTS
-         ======================================================= -->
-
-    <!-- <section
-      id="projects"
-      data-section
-      class="section section-muted"
-    >
-      <div class="section-container">
-        <div class="section-heading">
-          <p class="eyebrow reveal">Projects</p>
-
-          <h2 class="section-title reveal delay-1">
-            Selected projects
-          </h2>
-        </div>
-
-        <!-- Empty project state -->
-        <!-- <div class="empty-projects-card reveal">
-          <div class="empty-projects-icon" aria-hidden="true">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-3-3v6m9-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"
-              />
-            </svg>
-          </div>
-
-          <h3 class="font-display font-bold text-2xl mt-6">
-            Project details are available on GitHub
-          </h3>
-
-          <p class="max-w-xl mx-auto text-zinc-500 dark:text-zinc-400 leading-relaxed mt-3">
-            Browse my repositories for current coursework and software projects.
-          </p>
-
-          <a
-            href="https://github.com/mntgmry36?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button mt-7"
-          >
-            Visit my GitHub
-          </a>
-        </div> -->
-
-        <!--
-          PROJECT CARD TEMPLATE
-
-          <article class="project-card reveal">
-            <div class="project-image-placeholder">
-              <span>Project screenshot</span>
-            </div>
-
-            <div class="p-7">
-              <div class="flex items-center justify-between gap-4">
-                <p class="card-label">Project category</p>
-                <span class="status-badge">Completed</span>
-              </div>
-
-              <h3 class="card-title mt-3">Project Name</h3>
-
-              <p class="card-description mt-3">
-                Describe the problem, your solution, and the most important
-                result or technical challenge.
-              </p>
-
-              <div class="flex flex-wrap gap-2 mt-5">
-                <span class="small-tag">Technology</span>
-                <span class="small-tag">Technology</span>
-              </div>
-
-              <div class="flex gap-4 mt-6">
-                <a href="#" class="text-link">Source code →</a>
-                <a href="#" class="text-link">Live demo →</a>
-              </div>
-            </div>
-          </article>
-        -->
-      </div>
-    </section>
-
-    <!-- =======================================================
-         RESUME
-         ======================================================= -->
+    <!-- Resume -->
 
     <section
       id="resume"
@@ -1315,9 +1148,7 @@
       </div>
     </section>
 
-    <!-- =======================================================
-         CONTACT
-         ======================================================= -->
+    <!-- Contact -->
 
     <section
       id="contact"
@@ -1415,7 +1246,6 @@
             </div>
           </div>
 
-          <!-- Contact form -->
           <div class="reveal delay-1">
             <form
               id="contact-form"
@@ -1515,9 +1345,7 @@
     </section>
   </main>
 
-  <!-- =========================================================
-       FOOTER
-       ========================================================= -->
+  <!-- Footer -->
 
   <footer
     class="bg-zinc-950 text-zinc-400 border-t border-zinc-900"

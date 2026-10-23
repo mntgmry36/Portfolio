@@ -1,6 +1,4 @@
-/* =========================================================
-   BASE
-   ========================================================= */
+/* Base */
 
 *,
 *::before,
@@ -96,9 +94,7 @@ svg {
   display: none !important;
 }
 
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
+/* Accessibility */
 
 :focus-visible {
   outline: 3px solid rgba(21, 128, 61, 0.5);
@@ -120,23 +116,22 @@ svg {
   }
 
   .reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-.js-ready .reveal {
-  opacity: 0;
-  transform: translateY(24px);
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .js-ready .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .js-ready .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.js-ready .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-}
-
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
+/* Scroll reveal */
 
 .reveal {
   opacity: 0;
@@ -167,9 +162,7 @@ svg {
   transition-delay: 0.32s;
 }
 
-/* =========================================================
-   SHARED LAYOUT
-   ========================================================= */
+/* Layout */
 
 .section {
   padding-top: 6rem;
@@ -245,9 +238,7 @@ svg {
   color: #a1a1aa;
 }
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* Navigation */
 
 .nav-link {
   position: relative;
@@ -339,9 +330,7 @@ svg {
   background: #27272a;
 }
 
-/* =========================================================
-   BUTTONS
-   ========================================================= */
+/* Buttons */
 
 .primary-button,
 .secondary-button,
@@ -431,63 +420,12 @@ svg {
   left: 160%;
 }
 
-/* =========================================================
-   PROFILE CARD
-   ========================================================= */
-
-.profile-card {
-  width: 100%;
-  max-width: 24rem;
-  margin-inline: auto;
-  padding: 1.5rem;
-  border: 1px solid #e4e4e7;
-  border-radius: 1.75rem;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow:
-    0 24px 60px rgba(24, 24, 27, 0.08),
-    0 2px 8px rgba(24, 24, 27, 0.04);
-  backdrop-filter: blur(18px);
-}
-
-.dark .profile-card {
-  border-color: #27272a;
-  background: rgba(24, 24, 27, 0.78);
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.28),
-    0 2px 8px rgba(0, 0, 0, 0.18);
-}
-
-.profile-placeholder {
-  display: flex;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 1.25rem;
-  color: #ffffff;
-  background:
-    radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.25), transparent 35%),
-    linear-gradient(145deg, #86efac, #15803d 50%, #14532d);
-}
-
-.profile-placeholder span {
-  font-family: "PT Sans", sans-serif;
-  font-size: clamp(4rem, 14vw, 7rem);
-  font-weight: 700;
-  letter-spacing: -0.08em;
-  transform: translateX(-0.08em);
-}
-
-/* =========================================================
-   CARDS
-   ========================================================= */
+/* Cards */
 
 .info-card,
 .education-card,
 .experience-card,
 .skill-card,
-.empty-projects-card,
 .resume-preview-card {
   border: 1px solid #e4e4e7;
   background: #ffffff;
@@ -501,7 +439,6 @@ svg {
 .dark .education-card,
 .dark .experience-card,
 .dark .skill-card,
-.dark .empty-projects-card,
 .dark .resume-preview-card {
   border-color: #27272a;
   background: #18181b;
@@ -587,9 +524,7 @@ svg {
   color: #a1a1aa;
 }
 
-/* =========================================================
-   ABOUT AND EDUCATION
-   ========================================================= */
+/* About and education */
 
 .interest-tag,
 .course-tag,
@@ -651,8 +586,7 @@ svg {
 }
 
 .education-icon,
-.skill-icon,
-.empty-projects-icon {
+.skill-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -661,8 +595,7 @@ svg {
 }
 
 .dark .education-icon,
-.dark .skill-icon,
-.dark .empty-projects-icon {
+.dark .skill-icon {
   color: #4ade80;
   background: rgba(74, 222, 128, 0.12);
 }
@@ -673,9 +606,7 @@ svg {
   border-radius: 1rem;
 }
 
-/* =========================================================
-   EXPERIENCE
-   ========================================================= */
+/* Experience */
 
 .experience-number {
   flex: 0 0 auto;
@@ -687,9 +618,7 @@ svg {
   padding-top: 0.25rem;
 }
 
-/* =========================================================
-   SKILLS
-   ========================================================= */
+/* Skills */
 
 .skill-icon {
   width: 3rem;
@@ -697,64 +626,6 @@ svg {
   border-radius: 0.9rem;
 }
 
-/* =========================================================
-   PROJECTS
-   ========================================================= */
-
-.empty-projects-card {
-  padding: clamp(2rem, 6vw, 4rem);
-  border-radius: 1.75rem;
-  text-align: center;
-}
-
-.empty-projects-icon {
-  width: 4rem;
-  height: 4rem;
-  margin-inline: auto;
-  border-radius: 1.25rem;
-}
-
-.project-card {
-  overflow: hidden;
-  border: 1px solid #e4e4e7;
-  border-radius: 1.5rem;
-  background: #ffffff;
-  transition:
-    transform 0.28s ease,
-    border-color 0.2s ease,
-    box-shadow 0.28s ease;
-}
-
-.dark .project-card {
-  border-color: #27272a;
-  background: #18181b;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: #15803d;
-  box-shadow: 0 18px 40px rgba(24, 24, 27, 0.08);
-}
-
-.project-image-placeholder {
-  display: flex;
-  height: 14rem;
-  align-items: center;
-  justify-content: center;
-  color: #a1a1aa;
-  background:
-    linear-gradient(135deg, rgba(21, 128, 61, 0.1), transparent),
-    #f4f4f5;
-  font-size: 0.85rem;
-}
-
-.dark .project-image-placeholder {
-  background:
-    linear-gradient(135deg, rgba(74, 222, 128, 0.12), transparent),
-    #27272a;
-}
-
-.status-badge,
 .file-badge {
   display: inline-flex;
   align-items: center;
@@ -766,34 +637,16 @@ svg {
   font-weight: 600;
 }
 
-.status-badge {
-  padding: 0.35rem 0.65rem;
-}
-
 .file-badge {
   padding: 0.35rem 0.55rem;
 }
 
-.dark .status-badge,
 .dark .file-badge {
   color: #4ade80;
   background: rgba(74, 222, 128, 0.12);
 }
 
-.text-link {
-  color: #15803d;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.text-link:hover {
-  color: #16a34a;
-}
-
-/* =========================================================
-   RESUME
-   ========================================================= */
+/* Resume */
 
 code {
   border-radius: 0.35rem;
@@ -837,9 +690,7 @@ code {
   border: 0;
 }
 
-/* =========================================================
-   CONTACT
-   ========================================================= */
+/* Contact */
 
 .contact-link {
   display: flex;
@@ -948,9 +799,7 @@ code {
   box-shadow: 0 12px 28px rgba(21, 128, 61, 0.24);
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+/* Responsive */
 
 @media (max-width: 1023px) {
   .section {
@@ -991,12 +840,10 @@ code {
     padding-inline: 1.15rem;
   }
 
-  .profile-card,
   .info-card,
   .education-card,
   .experience-card,
   .skill-card,
-  .empty-projects-card,
   .resume-preview-card,
   .contact-form {
     border-radius: 1.25rem;

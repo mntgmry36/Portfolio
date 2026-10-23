@@ -1,14 +1,6 @@
 "use strict";
 document.documentElement.classList.add("js-ready");
 
-/**
- * Main Alpine.js component for the portfolio.
- *
- * Before publishing:
- * 1. Replace CONTACT_EMAIL with your real email address.
- * 2. Replace placeholder LinkedIn and GitHub URLs in index.html.
- * 3. Add resume.pdf beside index.html.
- */
 function portfolioApp() {
   const CONTACT_EMAIL = "mntgmry36@outlook.com";
 
@@ -20,9 +12,6 @@ function portfolioApp() {
     currentYear: new Date().getFullYear(),
     formMessage: "",
 
-    /**
-     * Runs automatically when Alpine initializes the component.
-     */
     init() {
       this.initializeTheme();
       this.initializeScrollTracking();
@@ -31,9 +20,6 @@ function portfolioApp() {
       this.initializeKeyboardControls();
     },
 
-    /**
-     * Loads the saved theme or follows the user's operating-system preference.
-     */
     initializeTheme() {
       const savedTheme = localStorage.getItem("theme");
       const prefersDarkMode = window.matchMedia(
@@ -48,34 +34,18 @@ function portfolioApp() {
 
       this.$watch("darkMode", () => {
         this.applyThemeClass();
-
-        localStorage.setItem(
-          "theme",
-          this.darkMode ? "dark" : "light"
-        );
+        localStorage.setItem("theme", this.darkMode ? "dark" : "light");
       });
     },
 
-    /**
-     * Applies the dark class directly to the document root.
-     */
     applyThemeClass() {
-      document.documentElement.classList.toggle(
-        "dark",
-        this.darkMode
-      );
+      document.documentElement.classList.toggle("dark", this.darkMode);
     },
 
-    /**
-     * Toggles light and dark mode.
-     */
     toggleTheme() {
       this.darkMode = !this.darkMode;
     },
 
-    /**
-     * Updates the header style while scrolling.
-     */
     initializeScrollTracking() {
       const updateScrollState = () => {
         this.scrolled = window.scrollY > 20;
@@ -83,16 +53,9 @@ function portfolioApp() {
 
       updateScrollState();
 
-      window.addEventListener(
-        "scroll",
-        updateScrollState,
-        { passive: true }
-      );
+      window.addEventListener("scroll", updateScrollState, { passive: true });
     },
 
-    /**
-     * Reveals elements when they enter the viewport.
-     */
     initializeRevealAnimations() {
       const revealElements = document.querySelectorAll(".reveal");
 
@@ -129,9 +92,6 @@ function portfolioApp() {
       });
     },
 
-    /**
-     * Tracks which section is currently visible for desktop navigation.
-     */
     initializeSectionObserver() {
       const sections = document.querySelectorAll("[data-section]");
 
@@ -166,9 +126,6 @@ function portfolioApp() {
       });
     },
 
-    /**
-     * Fallback section tracking for older browsers.
-     */
     initializeSectionFallback(sections) {
       const updateActiveSection = () => {
         const scrollPosition = window.scrollY + 160;
@@ -185,16 +142,9 @@ function portfolioApp() {
 
       updateActiveSection();
 
-      window.addEventListener(
-        "scroll",
-        updateActiveSection,
-        { passive: true }
-      );
+      window.addEventListener("scroll", updateActiveSection, { passive: true });
     },
 
-    /**
-     * Allows Escape to close the mobile navigation.
-     */
     initializeKeyboardControls() {
       window.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && this.mobileMenuOpen) {
@@ -203,19 +153,10 @@ function portfolioApp() {
       });
     },
 
-    /**
-     * Closes the mobile menu after a navigation link is selected.
-     */
     closeMobileMenu() {
       this.mobileMenuOpen = false;
     },
 
-    /**
-     * Opens the user's email application with the contact form content.
-     *
-     * A static HTML site cannot send email directly without a service such as:
-     * Formspree, Netlify Forms, EmailJS, or a custom backend.
-     */
     submitContactForm(event) {
       const form = event.currentTarget;
       const formData = new FormData(form);
@@ -249,9 +190,7 @@ function portfolioApp() {
         return;
       }
 
-      const emailSubject = encodeURIComponent(
-        `Portfolio contact: ${subject}`
-      );
+      const emailSubject = encodeURIComponent(`Portfolio contact: ${subject}`);
 
       const emailBody = encodeURIComponent(
         [
@@ -268,28 +207,17 @@ function portfolioApp() {
         `?subject=${emailSubject}` +
         `&body=${emailBody}`;
 
-      this.formMessage =
-        "Your email application should open now.";
+      this.formMessage = "Your email application should open now.";
 
       window.location.href = mailtoUrl;
     },
 
-    /**
-     * Converts a form value into a trimmed string.
-     */
     cleanFormValue(value) {
-      return typeof value === "string"
-        ? value.trim()
-        : "";
+      return typeof value === "string" ? value.trim() : "";
     },
 
-    /**
-     * Performs basic client-side email validation.
-     */
     isValidEmail(email) {
-      const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailPattern.test(email);
     }
   };
